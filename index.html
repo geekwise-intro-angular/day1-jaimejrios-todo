@@ -4,8 +4,38 @@
 	<meta charset="UTF-8">
 	<title>Intro to Angular</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+	<script>
+		//instantiate angular module
+		angular.module('todo',[]);
+
+		angular.module('todo').controller("myCtrl", function($scope) {
+
+			$scope.message = "Angular2";
+
+		});
+
+		angular.module('todo').controller("myCtrl2", function($scope) {
+
+			$scope.message = "Angular1";
+			$scope.list = ['wake', 'brush teeth', 'work', 'go home'];
+		});
+
+	</script>
 </head>
 <body>
-	
+
+	<div ng-app="todo">
+		<div ng-controller="myCtrl">
+			<input type="text" ng-model="message">
+			{{message}}
+			<h1>{{message}}</h1>
+			<h2>{{message}}</h2>
+		</div>
+		<div ng-controller="myCtrl2">
+			<h2>{{message}}</h2>
+			<h1>{{message}}</h1>
+		</div>
+	</div>
+
 </body>
 </html>
